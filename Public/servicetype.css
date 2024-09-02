@@ -1,0 +1,47 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    
+    background-color:#3a4b40!important;
+    
+    
+}
+main{
+    margin-top: 5rem ;
+    text-align: center;
+}
+h2{
+    color: white !important;
+    z-index: 5;
+    margin-bottom: 30px;
+}
+.wrap {
+    
+    margin:20px  auto ;
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+     z-index: -20;
+}
+
+
+.card{
+    margin: 0 auto;
+     width: 90%;
+   
+     box-shadow: 20px;
+}
+.card-img-top{
+    height: 200px;
+    
+    
+}
+
+img{
+    
+    height: 50px;
+    border-radius: 30px;
+}
+

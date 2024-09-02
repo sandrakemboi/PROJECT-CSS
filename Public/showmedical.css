@@ -1,0 +1,28 @@
+
+body {
+    background-color: #f8f9fa;
+}
+.wrap {
+    margin: 60px auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.inner-wrap{
+
+   align-items: center;
+}
+.inner-wrap div{
+    width: 50%;
+}
+h3{
+    color: #428F66 !important;
+    font-weight: bold;
+}
+strong{
+    color: #004b23 !important;
+    
+}

@@ -1,0 +1,56 @@
+
+    body{
+      
+       background-image: url(/images/c18ff2a10107fc3b08419db54241ea95.jpg);
+       background-repeat: no-repeat;
+       background-size: cover;
+       
+    }
+
+    
+.intro img{
+  
+    max-width:100%;
+    height: auto;
+    border-radius: 350px 0  190px 0;
+ }
+ section{
+   margin-top: 30px; 
+   color: white;
+ }
+ .two,.why_choose{
+  background-color: white !important;
+  color: black;
+  min-height: 200px;
+ }
+ .why_choose img{
+  height: 50px;
+ }
+
+ .slider_buttons button{
+  background-color: #004b23 !important;
+  width: 30px;
+ }
+ .quick-link{
+  background-color: #428F66 !important;
+  margin: 0 auto;
+ }
+ .quick-link a{
+  text-decoration: none;
+  color: white;
+ 
+ }
+ .quick-link button{
+  width: 80%;
+ }
+ .quick-link button{
+  border: 2px solid white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: #002c0b;
+ }
+
+ .wrap{
+  margin: 0 auto;
+ }
+ 
+ 

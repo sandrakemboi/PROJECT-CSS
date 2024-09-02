@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/police.css">
+    <title>Police Stations</title>
+   
+</head>
+<body>
+    <%- include('navbar.ejs')%>
+
+<div class="wrapper">
+        <select class="form-select" name="Station_County" id="county">
+            <option value="">Select County</option>
+            <% Station_County.forEach(county => { %>
+                <option value="<%= county.Station_County %>"><%= county.Station_County %></option>
+            <% }); %>  
+        </select>
+        <select class="form-select" name="Station_Constituency" id="constituency">
+            <option value="">Select Constituency</option>
+        </select>
+        <select class="form-select" name="Station_Name" id="station">
+            <option value="">Select Police Station</option>
+        </select>
+   
+    <div id="contacts">
+        <!--Telephone-->
+
+         <a href=""><div id="Telephone">
+            <p class="lead">telephone</p>
+         </div></a>
+        <!--Email-->
+        <a href=""><div id="email">
+            <p class="lead">email</p>
+         </div></a>
+    </div>
+</div>
+<%- include('footer.ejs')%>
+
+    <script>
+        function _(element) {
+            return document.getElementById(element);
+        }
+
+        function fetch_data(parent_element, child_element, type) {
+            fetch('/get_police?type=' + type + '&parent_value=' + parent_element.value).then(
+                function(response) {
+                    return response.json();
+                }).then ((responseData)=>{
+                    let option = "";
+                    if (type == 'load_Station_Constituency') {
+                        option = '<option value="">Select Constituency</option>';
+                    } else if (type == 'load_Station_Name') {
+                        option = '<option value="">Select Police Station</option>';
+                    }
+
+                    responseData.forEach(item => {
+                        option += '<option value="' + item + '">' + item + '</option>';
+                    });
+
+                    child_element.innerHTML = option;
+                });
+        }
+
+        function getContact(Station_Name){
+          fetch('/get_police?type=load_station_contacts&parent_value='+ Station_Name )
+          .then((response) =>response.json())
+          .then(responseData=>{
+            const telephoneDiv = _('Telephone');
+            const emailDiv = _('email');
+            telephoneDiv.textContent = responseData.Station_Contacts 
+            emailDiv.textContent= responseData.Station_Email|| 'N/A';
+
+          })
+        }
+
+        _('county').onchange = function() {
+            fetch_data(_('county'), _('constituency'), 'load_Station_Constituency');
+        }
+
+        _('constituency').onchange = function() {
+            fetch_data(_('constituency'), _('station'), 'load_Station_Name');
+        };
+        _('station').onchange = function() {
+            getContact(_('station').value);
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

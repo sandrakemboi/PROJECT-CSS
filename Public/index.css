@@ -1,0 +1,30 @@
+*{
+box-sizing: border-box;
+
+}
+body{
+    background-color: #d1fbe1 !important;
+}
+.wrapper{
+    border-radius:10px  5px;
+    box-shadow: 8px 8px 5px #ffffff;
+    width: 40vw;
+    height: 70vh;  
+    margin: 40px auto;
+    background-color: #f1fcf5 !important;
+
+}
+
+input{
+    width: 80%;
+}
+#button{
+    width:30%;
+    border-radius:10px;
+    background-color: #428F66 !important;
+    border: none;
+}
+
+
+ /*media querrry*/
+
